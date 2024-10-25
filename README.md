@@ -18,5 +18,5 @@ This project is a simple eCommerce application built with Django, focusing on co
 - **PostgreSQL**: Database for managing product, user, and transaction data.
 
 ### 🗂 Project Tracking
-The progress and task management are tracked using **YouTrack**, ensuring organized development and timely project milestones.
+The progress and task management are tracked using **YouTrack**.
 
