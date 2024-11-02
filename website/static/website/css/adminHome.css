@@ -1,0 +1,11 @@
+.adminContainer .oneProduct{
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 30px ;
+    box-sizing: border-box;
+    width: 30%;
+}
+.adminContainer .oneProduct img{
+    width: 100%;
+    object-fit: cover;
+}

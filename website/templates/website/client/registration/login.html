@@ -1,0 +1,43 @@
+{% extends "../loginAndRegisterBase.html" %}
+{% block content %}
+
+    <form method="post">
+       <h1>{% if formName == 'register' %}Create account !{% else %}Log in !{% endif %}</h1>
+    {% if form.username.errors %}
+        {{ form.username.errors }}
+    {% endif %}
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+        {% csrf_token %}
+        <div>
+            <div class="inputContainer">
+                {{ form.username.label }}
+                <div class="inputDiv">
+
+                    {{ form.username }}
+                </div>
+            </div>
+            <div class="inputContainer">
+                {{ form.password.label }}
+                <div class="inputDiv">
+
+                    {{ form.password }}
+                </div>
+
+            </div>
+        </div>
+
+        <button class="button1" type="submit" value="Submit">Submit</button>
+    </form>
+    {% if formName == 'register' %}
+        <a href="/login">Login</a>
+    {% else %}
+
+        <a href="/register">Sign up </a>
+
+    {% endif %}
+
+
+        <a href="/">Home</a>
+{% endblock %}

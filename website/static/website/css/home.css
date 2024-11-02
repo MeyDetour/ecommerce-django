@@ -1,0 +1,59 @@
+.homeContainer {
+
+}
+
+.homeContainer .imageHome {
+    width: 100%;
+    height: 94vh;
+    position: relative;
+}
+
+.homeContainer .imageHome::after {
+    content: '';
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;    background: linear-gradient(180deg, #00000069 10%, transparent 40%);
+}
+
+.homeContainer .imageHome img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.homeContainer .oneProduct {
+    text-decoration: none;
+    display: flex;
+    position: relative;
+    width: 27%;
+    height: 32vh;
+}
+
+.homeContainer  .oneProduct img {
+
+    border-radius: 6px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    box-shadow: 0px 0px 25px 4px #ededed;
+}
+
+ .homeContainer  .oneProduct .informations {
+      background: white;
+    position: absolute;
+    width: calc(100% - 40px);
+    left: 20px;
+    bottom: 20px;
+    box-shadow: 0 0 10px 0px transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: black;
+    padding: 10px 16px;
+    box-sizing: border-box;
+
+    border-radius: 6px;
+}

@@ -1,0 +1,32 @@
+{% extends "../base.html" %}
+{% block content %}
+{% load static %}
+<div class="imageHome">
+    <img src="{% static 'website/images/interiorSalon.jpg' %}" alt="">
+</div>
+<div class="container">
+    <h2>Our collection</h2>
+    <div class="productsWrap">
+        {% for product in products %}
+        {% if product.image %}
+
+        <a href="/product/get/{{ product.id }}" class="oneProduct">
+
+            <img src="{{ product.image.url }}" alt="">
+
+            <div class="informations">
+
+                <span>{{ product.name }}</span>
+                <span>{{ product.price }}</span>
+            </div>
+
+        </a>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+
+</div>
+
+
+{% endblock %}

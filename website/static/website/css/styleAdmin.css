@@ -1,0 +1,36 @@
+.bodyAdmin{
+    background: #EEEEFD;
+}
+.bodyAdmin> p {
+        width: 100%;
+    text-align: center;
+    color: #7c00ff;
+    background: #ffe2fd;
+    padding: 8px 0;
+    margin: 0;
+}
+.navbarAdmin{
+    z-index: 5;
+    display: flex;
+    width: 100%;
+    background: white;
+}
+
+.navbarAdmin ul{
+width: 100%;
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    padding-inline: 50px;
+    justify-content: center;
+    gap: 69px;
+
+}
+.navbarAdmin ul a{
+
+    font-size: 21px;
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+    text-transform: uppercase;
+}

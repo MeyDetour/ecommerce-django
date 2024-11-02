@@ -1,0 +1,30 @@
+{% extends "../base.html" %}
+{% block content %}
+{% load static %}
+
+<a href="/admin/product/edit/{{ product.id }}">Edit</a>
+<a href="/admin/product/hide/{{ product.id }}">Hide</a>
+<div class="container">
+    <h2>products</h2>
+    <div class="productsWrap">
+
+
+    <div class="oneProduct">
+
+        <img src="{{ product.image.url }}" alt="">
+
+        <div class="informations">
+
+            <span>{{ product.name }}</span>
+            <span>{{ product.price }}</span>
+        </div>
+
+    </div>
+
+</div>
+
+
+</div>
+
+
+{% endblock %}

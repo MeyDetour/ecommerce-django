@@ -1,0 +1,18 @@
+<nav class=" navbarAdmin">
+    <ul>
+
+
+        <li>
+            <a href="/"
+               class="{% if request.path == '/articles' or '/article/get/' in request.path %}focus {% endif %}">Client</a>
+        </li>
+        <li>
+            <a href="/admin/"
+               class="{% if request.path == '/articles' or '/article/get/' in request.path %}focus {% endif %}">Articles</a>
+        </li>
+
+
+
+    </ul>
+
+</nav>
