@@ -4,6 +4,7 @@
 
 <a href="/admin/product/edit/{{ product.id }}">Edit</a>
 <a href="/admin/product/hide/{{ product.id }}">Hide</a>
+<a href="/admin/product/remove/{{ product.id }}">remove</a>
 <div class="container">
     <h2>products</h2>
     <div class="productsWrap">
@@ -18,7 +19,10 @@
             <span>{{ product.name }}</span>
             <span>{{ product.price }}</span>
         </div>
+  {% for cat in product.categories.all %}
 
+        <span>{{ cat.name }}</span>
+        {% endfor %}
     </div>
 
 </div>

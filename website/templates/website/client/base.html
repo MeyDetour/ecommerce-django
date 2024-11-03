@@ -8,11 +8,14 @@
     <link rel="stylesheet" href="{% static 'website/css/style.css' %}">
     <link rel="stylesheet" href="{% static 'website/css/home.css' %}">
     <link rel="stylesheet" href="{% static 'website/css/profile.css' %}">
+    <link rel="stylesheet" href="{% static 'website/css/product.css' %}">
+    <script src="https://js.stripe.com/v3/"></script>
 </head>
 <body>{% include "website/client/components/navbar.html" %}
 
 <div class=" mainContainer {% if request.path == '/' %}homeContainer
 {% elif '/profile' ==  request.path %}profileContainer
+{% elif 'product/get' in request.path %}oneProductContainer
 
 {% endif %}  ">
 

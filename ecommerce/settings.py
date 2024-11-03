@@ -133,3 +133,8 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+STRIPE_ENDPOINT_SECRET ='praise-proven-chaste-cute'
+STRIPE_PUBLISHABLE_KEY = 'pk_test_51PCiXYJAQxIzzMor0oPuKa4Xw1swjZayuS67oIyKaQzH85mUS2ufpe9c1WzyRe3v4N6rt1kvsvnBKC7p4bNEpw8Q00fGssRWx2'
+STRIPE_SECRET_KEY = 'sk_test_51PCiXYJAQxIzzMorYOErl5sO7fwfqLCgGZrZ2Cgj1bB2QZZgDOtRz7ArhJbJOCvYdgJc8Yk8xiUa9Ok4abh3QWfY004uyvzQbU'

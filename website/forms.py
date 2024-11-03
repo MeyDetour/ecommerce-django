@@ -1,13 +1,17 @@
 from django import forms
 from django.contrib.auth.models import User
 
-from website.models import Product
+from website.models import Product, Category
 
 
-class ObjctForm(forms.ModelForm):
+class ProductForm(forms.ModelForm):
+
     class Meta:
         model = Product
-        fields = '__all__'
+        fields  = ['name', 'price', 'image','categories']
+        widgets = {
+            'categories':forms.CheckboxSelectMultiple()
+        }
 
 
 class LoginForm(forms.Form):
@@ -19,3 +23,10 @@ class UserForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['username','first_name','last_name']
+
+
+class CategoryForm(forms.ModelForm):
+
+    class Meta:
+        model = Category
+        fields = ['name']

@@ -1,0 +1,25 @@
+{% extends "../base.html" %}
+{% block content %}
+{% load static %}
+
+<div class="container">
+
+    <a href="/admin/category/create">Create</a>
+    <h2>Categories</h2>
+    <div class="productsWrap">
+        {% for cat in categories %}
+
+        <div class="oneProduct">
+            <a href="/admin/category/edit/{{ product.id }}" class="">
+                {{cat.name}} : produits associés {{cat.products|length}}
+            </a>
+        </div>
+
+        {% endfor %}
+    </div>
+
+
+</div>
+
+
+{% endblock %}

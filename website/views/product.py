@@ -2,14 +2,49 @@
 from django.contrib.auth.decorators import user_passes_test
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from django.utils.termcolors import RESET
 
-from website.forms import ObjctForm
+from website.forms import ProductForm
 from website.models import Product
+from website.services.cart_services import Cart_service
 
 
 def products(request):
     return render(request, 'website/client/product/products.html',{'products':Product.objects.all()})
 
+def get_product(request, id):
+    return render(request, 'website/client/product/product.html', {'product': Product.objects.get(id=id)})
+
+
+def add_product_to_cart(request,id):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect('/')
+    cart_service = Cart_service(request)
+    cart_service.add(id,request)
+    return  HttpResponseRedirect('/cart')
+def remove_one_product_to_cart(request,id):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect('/')
+    cart_service = Cart_service(request)
+    cart_service.remove_one_of_product(id, request)
+
+    return  HttpResponseRedirect('/cart')
+def remove_product_to_cart(request,id):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect('/')
+
+    cart_service = Cart_service(request)
+    cart_service.remove_product(id, request)
+
+    return  HttpResponseRedirect('/cart')
+def remove_all_product_to_cart(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect('/')
+
+    cart_service = Cart_service(request)
+    cart_service.remove_products( request)
+
+    return  HttpResponseRedirect('/cart')
 
 
 #========================================================ADMIN
@@ -20,12 +55,12 @@ def admin_products(request):
 @user_passes_test(lambda u: u.is_superuser)
 def admin_create_product(request):
     if request.method == 'POST':
-        form = ObjctForm(request.POST, request.FILES)
+        form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             obj = form.save(commit=False)
             obj.save()
             return HttpResponseRedirect('/')
-    form = ObjctForm
+    form = ProductForm
     return render(request, 'website/admin/product/create.html',{'form':form})
 
 @user_passes_test(lambda u: u.is_superuser)
@@ -37,11 +72,11 @@ def admin_get_product(request,id):
 def admin_edit_product(request,id):
     product = Product.objects.get(id=id)
     if request.method == 'POST':
-        form = ObjctForm(request.POST, request.FILES,instance=product)
+        form = ProductForm(request.POST, request.FILES,instance=product)
         if form.is_valid():
              form.save()
              return HttpResponseRedirect('/admin/product/get/'+str(id))
-    form = ObjctForm(instance=product)
+    form = ProductForm(instance=product)
     return render(request, 'website/admin/product/create.html',{'form':form})
 
 @user_passes_test(lambda u: u.is_superuser)
@@ -52,5 +87,11 @@ def admin_hide_product(request,id):
     else :
         product.is_hidden = True
     product.save()
+    return HttpResponseRedirect('/admin/')
+
+@user_passes_test(lambda u: u.is_superuser)
+def admin_remove_product(request,id):
+    product = Product.objects.get(id=id)
+    product.delete()
     return HttpResponseRedirect('/admin/')
 

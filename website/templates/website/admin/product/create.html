@@ -22,6 +22,13 @@
                     {{ form.image }}
                 </div>
             </div>
+        <div class="inputContainer">
+            {{ form.categories.label_tag }}
+            <div class="inputDiv">
+
+                {{ form.categories }}
+            </div>
+        </div>
         <input type="submit" value="Submit">
     </form>
 {% endblock %}

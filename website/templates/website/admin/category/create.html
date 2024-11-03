@@ -1,0 +1,17 @@
+{% extends "../base.html" %}
+{% block content %}
+<form method="post">
+{% if category %}Modifier{% else %}Créer{% endif %} une catégorie
+    {% csrf_token %}
+    <div class="inputContainer">
+        {{ form.name.label }}
+        <div class="inputDiv">
+            {{ form.name }}
+        </div>
+    </div>
+    <input type="submit" value="Submit">
+</form>
+{%if category and category.products|length == 0 %}
+<a href="">Delete category</a>
+{%endif%}
+{% endblock %}
