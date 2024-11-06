@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-xq6p8w@jphbm3vl4iqfn6rozp%*@#89=$mbgu#3&bzsuh5i6&x
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['172.232.43.167','ecommerce-django.meydetour.com']
 
 
 # Application definition
@@ -126,6 +126,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
